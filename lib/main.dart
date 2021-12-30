@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 /// 界面搭建一
 /// 入口函数。和java里的main入口函数一个意思
 void main() {
@@ -23,6 +24,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var data = [];
+
   @override
   void initState() {
     // TODO: implement initState
@@ -45,7 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
     content3['tab2'] = "Archive";
     data.add(content3);
 
-    setState(() {});
   }
 
   @override
@@ -69,7 +70,6 @@ class _MyHomePageState extends State<MyHomePage> {
             /// 其他浮在背景层上面的布局 Column
             /// Column 是竖直排列控件的意思，里面的控件都是按照从上往下排列的。
             Container(
-              width: 375,
               margin: const EdgeInsets.fromLTRB(0, 105, 0, 0),
               child: Column(
                 /// 所有控件 左边开始的位置对齐
@@ -114,6 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ],
                   ),
+
                   /// 三个数据战术区 Row 横向排列  Column 纵向排列
                   Container(
                     margin: const EdgeInsets.fromLTRB(85, 20, 85, 0),
@@ -174,13 +175,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       )),
                     ]),
                   ),
+
                   /// 三个列表项
                   Expanded(
                       child: Container(
                     padding: const EdgeInsets.fromLTRB(25, 0, 25, 20),
                     /// 循环添加三个列表项
                     child: ListView.builder(
-                        itemCount: 3,
+                        itemCount:data.length ,
                         itemBuilder: (BuildContext context, int index) {
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -199,7 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Padding(
                                       padding: const EdgeInsets.all(10),
                                       child: Row(
-                                        children:  [
+                                        children: [
                                           Text(
                                             data.isNotEmpty
                                                 ? data[index]['tab1']
@@ -221,12 +223,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                       child: const Divider(
                                           height: 2, color: Colors.black12),
                                       width: 300,
-                                      margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                      margin: const EdgeInsets.fromLTRB(
+                                          10, 0, 10, 0),
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.all(10),
                                       child: Row(
-                                        children:  [
+                                        children: [
                                           Text(data.isNotEmpty
                                               ? data[index]['tab2']
                                               : ""),
