@@ -46,7 +46,6 @@ class _MyHomePageState extends State<MyHomePage> {
     content3['tab1'] = "Current";
     content3['tab2'] = "Archive";
     data.add(content3);
-
   }
 
   @override
@@ -180,9 +179,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   Expanded(
                       child: Container(
                     padding: const EdgeInsets.fromLTRB(25, 0, 25, 20),
+
                     /// 循环添加三个列表项
                     child: ListView.builder(
-                        itemCount:data.length ,
+                        itemCount: data.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -267,4 +267,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
+
 }
